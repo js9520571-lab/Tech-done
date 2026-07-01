@@ -3,10 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tech-Done - Professional Tech Solutions & Services">
-    <title>Tech-Done | Professional Tech Solutions</title>
+    <meta name="description" content="Tech-Done - Professional Tech Solutions, Web Development, Mobile Apps, Cloud Services">
+    <meta name="keywords" content="tech solutions, web development, mobile apps, cloud services, consulting">
+    <meta name="author" content="Tech-Done">
+    <meta name="theme-color" content="#667eea">
+    <title>Tech-Done | Professional Tech Solutions & Services</title>
+    <link rel="canonical" href="https://js9520571-lab.github.io/Tech-done/">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Tech-Done",
+      "url": "https://js9520571-lab.github.io/Tech-done/",
+      "description": "Professional Tech Solutions and Services",
+      "telephone": "+1-555-123-4567",
+      "email": "info@tech-done.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Tech Street 123",
+        "addressLocality": "Tech City"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -20,13 +42,20 @@
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
                     <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#team" class="nav-link">Team</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="nav-controls">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,6 +63,7 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Welcome to Tech-Done</h1>
@@ -42,6 +72,20 @@
                 <div class="hero-buttons">
                     <a href="#services" class="btn btn-primary">Get Started</a>
                     <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="500">0</h3>
+                        <p>Projects Delivered</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="200">0</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3 class="counter" data-target="15">0</h3>
+                        <p>Years Experience</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -102,8 +146,14 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="cloud">Cloud</button>
+            </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="web">
                     <div class="portfolio-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
                     <div class="portfolio-content">
                         <h3>E-Commerce Platform</h3>
@@ -111,7 +161,7 @@
                         <p>Full-stack e-commerce solution with payment integration and inventory management.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="mobile">
                     <div class="portfolio-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
                     <div class="portfolio-content">
                         <h3>Mobile Fitness App</h3>
@@ -119,7 +169,7 @@
                         <p>Cross-platform fitness tracking application with real-time data synchronization.</p>
                     </div>
                 </div>
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="cloud">
                     <div class="portfolio-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
                     <div class="portfolio-content">
                         <h3>Cloud Infrastructure</h3>
@@ -127,34 +177,279 @@
                         <p>Scalable cloud infrastructure supporting 1M+ daily active users.</p>
                     </div>
                 </div>
+                <div class="portfolio-item" data-category="web">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                    <div class="portfolio-content">
+                        <h3>SaaS Dashboard</h3>
+                        <p class="portfolio-category">Web Development</p>
+                        <p>Advanced analytics dashboard with real-time data visualization.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="mobile">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);"></div>
+                    <div class="portfolio-content">
+                        <h3>Social Messaging App</h3>
+                        <p class="portfolio-category">Mobile Development</p>
+                        <p>Real-time messaging platform with end-to-end encryption.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="cloud">
+                    <div class="portfolio-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                    <div class="portfolio-content">
+                        <h3>Microservices Architecture</h3>
+                        <p class="portfolio-category">Cloud Solutions</p>
+                        <p>Scalable microservices with Kubernetes orchestration.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Who We Are</h3>
-                    <p>Tech-Done is a team of passionate developers and innovators dedicated to delivering exceptional technology solutions. With years of experience across various industries, we understand the challenges businesses face in the digital landscape.</p>
-                    <p>Our mission is to empower businesses with cutting-edge technology, helping them stay competitive and achieve their goals in an increasingly digital world.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h4>100+</h4>
-                            <p>Projects Completed</p>
+            <h2 class="section-title">Pricing Plans</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">29</span>
+                            <span class="period">/month</span>
                         </div>
-                        <div class="stat">
-                            <h4>50+</h4>
-                            <p>Happy Clients</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Up to 5 Projects</li>
+                        <li><i class="fas fa-check"></i> Email Support</li>
+                        <li><i class="fas fa-check"></i> Basic Analytics</li>
+                        <li><i class="fas fa-times"></i> Priority Support</li>
+                        <li><i class="fas fa-times"></i> Custom Domain</li>
+                    </ul>
+                    <button class="btn btn-secondary">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Popular</div>
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">79</span>
+                            <span class="period">/month</span>
                         </div>
-                        <div class="stat">
-                            <h4>10+</h4>
-                            <p>Years Experience</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Up to 25 Projects</li>
+                        <li><i class="fas fa-check"></i> Priority Email Support</li>
+                        <li><i class="fas fa-check"></i> Advanced Analytics</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Custom Domain</li>
+                    </ul>
+                    <button class="btn btn-primary">Choose Plan</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">$</span>
+                            <span class="amount">199</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited Projects</li>
+                        <li><i class="fas fa-check"></i> 24/7 Phone Support</li>
+                        <li><i class="fas fa-check"></i> Custom Analytics</li>
+                        <li><i class="fas fa-check"></i> Dedicated Manager</li>
+                        <li><i class="fas fa-check"></i> White Label Options</li>
+                    </ul>
+                    <button class="btn btn-secondary">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <div class="avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>John Smith</h3>
+                    <p class="role">CEO & Founder</p>
+                    <p class="bio">15+ years in tech leadership and innovation</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <div class="avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p class="role">CTO</p>
+                    <p class="bio">Expert in cloud architecture and DevOps</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <div class="avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><i class="fas fa-user"></i></div>
+                    </div>
+                    <h3>Mike Davis</h3>
+                    <p class="role">Lead Designer</p>
+                    <p class="bio">Creative UI/UX designer with 10+ years experience</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Testimonials</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Tech-Done transformed our business with their innovative solutions. Highly professional and delivered on time!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4>Alex Brown</h4>
+                            <p>CEO, StartUp Inc</p>
                         </div>
                     </div>
                 </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Outstanding quality and exceptional customer service. They really understood our requirements."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4>Emma Wilson</h4>
+                            <p>Director, Tech Corp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Best investment we made! Their expertise helped us scale from 0 to 1 million users."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"><i class="fas fa-user"></i></div>
+                        <div>
+                            <h4>David Lee</h4>
+                            <p>Founder, Digital Ventures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What technologies do you use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use cutting-edge technologies including React, Vue.js, Node.js, Python, AWS, Azure, Docker, Kubernetes, and more. Our stack is always up-to-date with industry standards.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How long does a typical project take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Project timelines vary based on complexity and scope. A simple website might take 2-4 weeks, while complex applications can take 3-6 months. We'll provide accurate estimates after understanding your requirements.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you provide post-launch support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer comprehensive post-launch support including maintenance, updates, bug fixes, and feature enhancements. Support packages can be customized to your needs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is your pricing model?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We offer flexible pricing models including fixed project pricing, hourly rates, and monthly retainers. We also have predefined packages for common solutions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can you sign an NDA?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We understand the importance of confidentiality and are happy to sign NDAs for all projects.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do we communicate during the project?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We use tools like Slack, Zoom, and project management platforms for seamless communication. You'll have regular updates and can reach out anytime during business hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest updates on tech trends and our services</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
             </div>
         </div>
     </section>
@@ -190,6 +485,13 @@
                 <form class="contact-form">
                     <input type="text" placeholder="Your Name" required>
                     <input type="email" placeholder="Your Email" required>
+                    <select required>
+                        <option value="">Select Service</option>
+                        <option value="web">Web Development</option>
+                        <option value="mobile">Mobile Apps</option>
+                        <option value="cloud">Cloud Solutions</option>
+                        <option value="other">Other</option>
+                    </select>
                     <textarea placeholder="Your Message" rows="5" required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
@@ -201,17 +503,78 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Tech-Done</h4>
+                    <p>Delivering innovative tech solutions for modern businesses worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">Mobile Apps</a></li>
+                        <li><a href="#services">Cloud Solutions</a></li>
+                        <li><a href="#services">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; 2024 Tech-Done. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Sitemap</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Live Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-button" id="chatButton">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <h5>Chat with us!</h5>
+                <button class="close-chat" id="closeChat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <p>Hi! How can we help you today?</p>
+                </div>
+            </div>
+            <form class="chat-form" id="chatForm">
+                <input type="text" placeholder="Type your message..." id="chatInput">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+
     <script src="js/main.js"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </body>
 </html>
